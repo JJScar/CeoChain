@@ -1,66 +1,94 @@
-## Foundry
+# CeoChain: Decentralized CEO Voting Platform
+## Overview
+CeoChain is a blockchain-based governance platform designed to facilitate transparent and secure voting for CEO selection and board management. The project leverages Solidity smart contracts and Foundry for development and testing.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Features
+- Decentralized CEO voting mechanism
+- Transparent candidate selection process
+- Secure blockchain-based governance
+- Immutable voting records
+- MakeFile for easy use
 
-Foundry consists of:
+## Background
+**The platform manages CEO transitions through a structured, secure voting mechanism:**
+- Admin receives a list of potential CEO candidates
+- *Security Constraint*: Maximum of 10 candidates allowed
+  
+**Voting Cycle**
+- Represents the time/epoch for the voting duration
+- Duration: One month
+- Each whitelisted voter can cast only one vote per cycle
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+**Administrative Controls**
+- Admin kicks off the voting cycle and is seperate from the voting
+- Admin can add or remove voters from the whitelist
+- Enables dynamic management of voting participants
 
-## Documentation
+**Voting Finalisation**
+- After one month, any user can trigger vote finalization
+- System calculates and determines the winning candidate
+- Ensures transparent, democratic CEO selection process
 
-https://book.getfoundry.sh/
+### Actors
+- Admin - Manages the system. The admin is seprate to the voting system so there is no bias. The admin cannot apply to the whitelist and cannot vote. The admin is the only address that can initiate a new voting cycle and approve or remove voters.
+- Board Memebers - These are the board memebers of the comapny. They can vote as same as anyone else. In case of a tie in the vote, to settle the tie, we will calcualte the results only by the board for these candidates. 
+- Voters - Employees at the company. These addresses are users who will apply to become voters, after the admin approves them. They can cast votes. 
+- Users - Can apply to become voters. They can also finalise a cycle. 
+
+## Prerequisites 
+- Foundry
+- Solidity 0.8.25
+- forge-std
+- OpenZeppelin Contracts
+
+## Installation
+Clone the repo to your local machine
+```bash
+git clone https://github.com/JJScar/CeoChain.git
+```
+Install dependencies
+```bash
+make install
+```
+Compile 
+```bash
+make build
+```
+See tests
+```bash
+make test
+```
+Deploy Anvil local Blockchain
+```bash
+make anvil
+```
 
 ## Usage
-
-### Build
-
-```shell
-$ forge build
+Deploy the CeoChain Contract
+```bash
+make deploy
 ```
-
-### Test
-
-```shell
-$ forge test
+*ONLY ADMIN* Initialise Vote
+```bash
+make initiateVote
 ```
-
-### Format
-
-```shell
-$ forge fmt
+*ONLY ADMIN* Approve User To Whitelist
+```bash
+make approveToWhitelist
 ```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
+*ONLY ADMIN* Remove User from Whitelist
+```bash
+make removeFromWhitelist
 ```
-
-### Anvil
-
-```shell
-$ anvil
+Apply to get whitelisted
+```bash
+make applyToWhitelist
 ```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+Cast Vote
+```bash
+make castVote
 ```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+Finalise Vote Cycle
+```bash
+make finaliseVote
 ```
