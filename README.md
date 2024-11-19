@@ -20,7 +20,7 @@ CeoChain is a blockchain-based governance platform designed to facilitate transp
 - Each whitelisted voter can cast only one vote per cycle
 
 **Administrative Controls**
-- Admin kicks off the voting cycle and is seperate from the voting
+- Admin kicks off the voting cycle and is separate from the voting
 - Admin can add or remove voters from the whitelist
 - Enables dynamic management of voting participants
 
@@ -29,9 +29,18 @@ CeoChain is a blockchain-based governance platform designed to facilitate transp
 - System calculates and determines the winning candidate
 - Ensures transparent, democratic CEO selection process
 
+### Example Scenario
+1. The current CEO had either decided to leave, or perhaps needed to leave their position. 
+2. The company will select a person to be the admin, who is external to the vote. 
+3. Even before the cycle begins, employees (potential voters) can apply to become voters.
+4. The admin will start a voting cycle when the company decides to do so.
+5. The voters now have 30 days to cast their votes.
+6. Upon the end of the cycle anyone can call finalise vote.
+7. The new CEO is selected.
+
 ### Actors
-- Admin - Manages the system. The admin is seprate to the voting system so there is no bias. The admin cannot apply to the whitelist and cannot vote. The admin is the only address that can initiate a new voting cycle and approve or remove voters.
-- Board Memebers - These are the board memebers of the comapny. They can vote as same as anyone else. In case of a tie in the vote, to settle the tie, we will calcualte the results only by the board for these candidates. 
+- Admin - Manages the system. The admin is separate to the voting system so there is no bias. The admin cannot apply to the whitelist and cannot vote. The admin is the only address that can initiate a new voting cycle and approve or remove voters.
+- Board Members - These are the board members of the company. They can vote as same as anyone else. In case of a tie in the vote, to settle the tie, we will calculate the results only by the board for these candidates. 
 - Voters - Employees at the company. These addresses are users who will apply to become voters, after the admin approves them. They can cast votes. 
 - Users - Can apply to become voters. They can also finalise a cycle. 
 
